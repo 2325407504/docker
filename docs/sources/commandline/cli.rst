@@ -54,6 +54,8 @@ Available Commands
 
 .. include:: command/kill.rst
 
+.. include:: command/link.rst
+
 .. include:: command/login.rst
 
 .. include:: command/logs.rst
