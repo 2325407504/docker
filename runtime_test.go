@@ -105,8 +105,9 @@ func removeDev(name string) {
 func cleanupDevMapper() {
 	// Unmount any leftover mounts from previous unit test runs
 	if data, err := ioutil.ReadFile("/proc/mounts"); err == nil {
+		var cols []string
 		for _, line := range strings.Split(string(data), "\n") {
-			cols := strings.Split(line, " ")
+			cols = strings.Split(line, " ")
 			if len(cols) >= 2 && strings.HasPrefix(cols[0], "/dev/mapper/docker-unit-tests-devices") {
 				err = syscall.Unmount(cols[1], 0)
 				if err != nil {
